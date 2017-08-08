@@ -232,10 +232,10 @@ def gp_minimize(func, dimensions, base_estimator=None,
                 length_scale_bounds=[(0.01, 100)] * space.transformed_n_dims,
                 nu=2.5)
 
-    base_estimator = GaussianProcessRegressor(
-        kernel=cov_amplitude * other_kernel,
-        normalize_y=True, random_state=rng, alpha=0.0, noise=noise,
-        n_restarts_optimizer=2)
+        base_estimator = GaussianProcessRegressor(
+            kernel=cov_amplitude * other_kernel,
+            normalize_y=True, random_state=rng, alpha=0.0, noise=noise,
+            n_restarts_optimizer=2)
 
     return base_minimize(
         func, dimensions, base_estimator=base_estimator,
